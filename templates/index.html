@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Рассчитать объем</title>
+</head>
+<body style=»background-color: #55D52B»>
+
+<center><h1>Объем геометрических фигур</h1></center>
+    <form method="post">
+
+
+        <label for="precision">Точность:</label>
+        <input type="number" name="precision" id="precision"><br><br>
+
+         <label for="shape">Выберите форму:</label>
+        <select name="shape" id="shape">
+            <option value="cube">Куб</option>
+            <option value="sphere">Сфера</option>
+            <option value="cylinder">Цилиндр</option>
+        </select><br><br>
+
+        <div id="cube_params" class="params">
+            <label for="side_length">Длина стороны:</label>
+            <input type="number" name="side_length" id="side_length" step="any">
+        </div>
+
+        <div id="sphere_params" class="params" style="display:none;">
+            <label for="radius">Радиус:</label>
+            <input type="number" name="radius" id="radius" step="any">
+        </div>
+
+        <div id="cylinder_params" class="params" style="display:none;">
+            <label for="radius_с">Радиус:</label>
+            <input type="number" name="radius_с" id="radius_с" step="any"><br>
+            <label for="height">Высота:</label>
+            <input type="number" name="height" id="height" step="any">
+        </div>
+
+        <br><br><button type="submit"><h2>Ответ</h2></button>
+    </form>
+    
+    <script>
+        document.getElementById('shape').addEventListener('change', function() {
+            var shape = this.value;
+            document.querySelectorAll('.params').forEach(function(param) {
+                param.style.display = 'none';
+            });
+            document.getElementById(shape + '_params').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
